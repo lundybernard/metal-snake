@@ -4,3 +4,7 @@
 name: metal-snake
 dependencies:
     - rust
+    - maturin
+    - pyyaml
+    - pip:
+        - batconf
