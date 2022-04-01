@@ -22,8 +22,6 @@ pub enum MetalError {
 
 
 fn fib(n: u32) -> u32 {
-    if n == 1 { return 0; }
-
     let (mut f0, mut f1) = (1, 0);
     for _ in 0..n {
         let f2 = f0 + &f1;
