@@ -1,6 +1,8 @@
 from unittest import TestCase
 
 from bat.lib import (
+    fib,
+    rfib,
     minimize_distance,
     distance_transform,
     hello_world,
@@ -10,7 +12,28 @@ from bat.lib import (
 
 class LibTests(TestCase):
 
-    def test_minimize_distance(t):
+    def setUp(t) -> None:
+        t.fibmap: dict[int, int] = {
+            1: 0,
+            2: 1,
+            3: 1,
+            4: 2,
+            5: 3,
+            6: 5,
+            7: 8,
+        }
+
+    def test_fib(t) -> None:
+        for n, v in t.fibmap.items():
+            with t.subTest(f'fib({n})'):
+                t.assertEqual(fib(n), v)
+
+    def test_rfib(t) -> None:
+        for n, v in t.fibmap.items():
+            with t.subTest(f'rfib({n})'):
+                t.assertEqual(rfib(n), v)
+
+    def test_minimize_distance(t) -> None:
         # Given a list of dicts representing features on nodes
         # find the node (list index)
         # which minimizes the distance to all features

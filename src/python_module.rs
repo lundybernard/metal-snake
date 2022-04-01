@@ -8,6 +8,7 @@ use pyo3::{
 };
 
 use crate::{
+    fib,
     hello_rust,
     error_rust,
     MetalErrorPlus,
@@ -19,6 +20,12 @@ use crate::{
 #[pyo3(name = "rust")]
 fn metal_snake_py(_py: Python<'_>, m:&PyModule) -> PyResult<()> {
     // ref: https://pyo3.rs/v0.15.1/module.html
+
+    #[pyfn(m)]
+    #[pyo3(name = "rfib")]
+    fn rfib(n: u32) -> Result<u32, PyErr> {
+        return Ok(fib(n));
+    }
 
     #[pyfn(m)]
     #[pyo3(name = "hello_rust")]

@@ -3,6 +3,17 @@ from typing import List, Dict
 import numpy as np
 from scipy.spatial.distance import cdist
 
+from .metal_snake import fib as rfib
+
+
+def fib(n: int) -> int:
+    print(f'{n=}')
+    i, j = 1, 0
+    for _ in range(n):
+        i, j = j, i + j
+    print(f'{i=}')
+    return i
+
 
 def minimize_distance(features: List[Dict[str, bool]]) -> int:
     # convert features to list of Binary Lists

@@ -1,4 +1,6 @@
+use std::mem::replace;
 use thiserror::Error;
+
 
 /// MetalErrorPlus enumerates all possible errors
 /// returned by this library.
@@ -16,6 +18,19 @@ pub enum MetalErrorPlus {
 pub enum MetalError {
     #[error("Raise Runtime Error: '{0}'")]
     RuntimeError(String),
+}
+
+
+fn fib(n: u32) -> u32 {
+    if n == 1 { return 0; }
+
+    let (mut f0, mut f1) = (1, 0);
+    for _ in 0..n {
+        let f2 = f0 + &f1;
+        // This is a low cost way of swapping f0 with f1 and f1 with f2.
+        f0 = replace(&mut f1, f2);
+    }
+    return f0;
 }
 
 
