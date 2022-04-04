@@ -1,6 +1,8 @@
 use std::mem::replace;
+
 use thiserror::Error;
 
+//use num_bigint::BigInt;
 
 /// MetalErrorPlus enumerates all possible errors
 /// returned by this library.
@@ -21,14 +23,23 @@ pub enum MetalError {
 }
 
 
-fn fib(n: u32) -> u32 {
-    let (mut f0, mut f1) = (1, 0);
+fn fib(n: u32) -> usize {
+    let mut f0: usize = 1;
+    let mut f1: usize = 0;
     for _ in 0..n {
         let f2 = f0 + &f1;
         // This is a low cost way of swapping f0 with f1 and f1 with f2.
         f0 = replace(&mut f1, f2);
     }
     return f0;
+}
+
+fn busy_fib() {
+    for _ in 0..10000 {
+        for n in 0..42 {
+            fib(n);
+        }
+    }
 }
 
 

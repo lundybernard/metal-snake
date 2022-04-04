@@ -3,16 +3,35 @@ from typing import List, Dict
 import numpy as np
 from scipy.spatial.distance import cdist
 
-from .metal_snake import fib as rfib
+from bat.metal_snake import (
+    rfib,
+    busy_fib,
+)
 
 
 def fib(n: int) -> int:
-    print(f'{n=}')
+    #print(f'{n=}')
     i, j = 1, 0
     for _ in range(n):
         i, j = j, i + j
-    print(f'{i=}')
+    #print(f'{i=}')
     return i
+
+
+def fib_perf() -> None:
+    for i in range(10000):
+        for n in range(42):
+            fib(n)
+
+
+def rfib_perf() -> None:
+    for i in range(10000):
+        for n in range(42):
+            rfib(n)
+
+
+def busy_fib_perf() -> None:
+    busy_fib()
 
 
 def minimize_distance(features: List[Dict[str, bool]]) -> int:

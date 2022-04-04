@@ -1,5 +1,6 @@
 from .rust import (
     rfib,
+    busy_fib,
     hello_rust,
 )
 

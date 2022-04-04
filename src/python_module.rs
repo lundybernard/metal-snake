@@ -9,11 +9,14 @@ use pyo3::{
 
 use crate::{
     fib,
+    busy_fib,
     hello_rust,
     error_rust,
     MetalErrorPlus,
     MetalError,
 };
+
+//use num_bigint::BigInt;
 
 
 #[pymodule]
@@ -23,15 +26,22 @@ fn metal_snake_py(_py: Python<'_>, m:&PyModule) -> PyResult<()> {
 
     #[pyfn(m)]
     #[pyo3(name = "rfib")]
-    fn rfib(n: u32) -> Result<u32, PyErr> {
+    fn rfib(n: u32) -> Result<usize, PyErr> {
         return Ok(fib(n));
+    }
+
+    #[pyfn(m)]
+    #[pyo3(name = "busy_fib")]
+    fn busy_fib_py() -> Result<(), PyErr> {
+        busy_fib();
+        return Ok(());
     }
 
     #[pyfn(m)]
     #[pyo3(name = "hello_rust")]
     fn hello_rust_py(input_text: &str) -> Result<(), PyErr> {
         hello_rust(input_text);
-        Ok(())
+        return Ok(());
     }
 
     #[pyfn(m)]
