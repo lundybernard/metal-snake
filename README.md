@@ -1,3 +1,8 @@
+# REF:
+9 rules for writing python extensions in rust
+
+https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29
+
 # BAT Project Template
 example python microservice project
 
