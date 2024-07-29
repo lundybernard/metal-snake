@@ -13,6 +13,6 @@ crate-type = ["cdylib"]
 name = "bat.metal_snake.rust"
 
 [dependencies]
-pyo3 = { version = "0.15.1", features = ["extension-module"] }
-thiserror = "1.0.30"
-num-bigint = "0.4.2"
+pyo3 = { version = "*", features = ["extension-module"] }
+thiserror = "*"
+num-bigint = "*"

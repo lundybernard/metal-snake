@@ -12,7 +12,7 @@ example python microservice project
 install in developer mode from source
 
 ```
-python setup.py develop
+pip install -e .
 ```
 
 ### Install latest batconf from github branch

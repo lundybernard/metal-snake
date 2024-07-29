@@ -3,7 +3,7 @@
 [build-system]
 #requires = ["setuptools", "wheel"]
 #build-backend = "setuptools.build_meta"
-requires = ['maturin==0.12.5']
+requires = ['maturin']
 build-backend = 'maturin'
 
 [tool.poetry]
